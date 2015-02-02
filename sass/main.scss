@@ -1,0 +1,175 @@
+$background-colour:#E0E0E0; //Light grey
+$border-colour:#B0B0B0; //Dark grey
+
+/* Note: I have used grey because it is a neutral colour */
+
+#wrapper {
+    margin: 0 auto;
+    width: 950px;
+    padding: 10px;
+
+    position: relative;
+    background-color: $background-colour;
+    border:3px solid $border-colour;
+
+    overflow:hidden;
+}
+
+#heading {text-align:center;}
+
+#gallery {
+	width:1590px; //This is the combination of all the images with their borders and the padding in between them
+
+    ul {
+    	list-style: none;
+    	padding: 0px;
+    	margin:0px;
+    	left:-160px;
+    	position:relative;
+    	width:9999px; //It is important to have a large width for the list
+
+    	li{
+    		float:left;
+    		margin:0px 5px;
+
+    		//Rules required for IE
+    		width:150px;
+    		text-align:center;
+
+    		&:first-child { margin-left:0px; }
+    		&:last-child { margin-right:0px; }
+
+    		figure{
+    			margin:0px 0px 20px 0px;
+
+    			img { border:2px solid $border-colour; }
+
+    			figcaption{ text-align:center; }
+    		}
+    	}
+    }
+}
+
+//Making the navigation look better
+#buttons{
+	width:450px;
+	margin:0 auto;
+
+	.next{
+		float:right;
+		padding-right:45px;
+		background-image:url('images/left-nav-arrow-35x18.png');
+
+		background-repeat:no-repeat;
+		background-position:right;
+		cursor:pointer;
+		color:#000;
+
+		&:hover{
+			color:#333;
+			background-image:url('images/active-left-nav-arrow-35x18.png');
+		}
+	}
+	.previous{
+		float:left;
+		padding-left:45px;
+		background-image:url('images/right-nav-arrow-35x18.png');
+
+		cursor:pointer;
+		background-repeat:no-repeat;
+		background-position:left;
+		color:#000;
+
+		&:hover {
+			color:#333;
+			background-image:url('images/active-right-nav-arrow-35x18.png')
+		}
+	}
+}
+
+//Styling the lightbox
+#lightbox{
+	position:fixed;
+	width:100%;
+	height:100%;
+
+	top:0px;
+	left:0px;
+	text-align:center;
+
+	background-image:url('images/overlay-1px.png');
+	background-repeat:repeat;
+
+	#content {
+		width:800px; //The width of the images
+		margin:0 auto;
+		position:relative;
+
+
+		img{
+			position:relative;
+		}
+
+		.exit{
+		position:absolute;
+		top:0px;
+		right:-10%;
+		z-index:200;
+
+		cursor:pointer;
+		padding-right:19px;
+		color:#d00000;
+		font-size:22px;
+
+		background-image:url('images/close-14x18.png');
+		background-repeat:no-repeat;
+		background-position:right;
+
+		&:hover{
+			color:#ff0000;
+			background-image:url('images/close-active-14x18.png')
+		}
+
+		}
+
+		.image_caption{
+			margin:0px;
+			background:#fff;
+			line-height:2em;
+		}
+
+		.previous{
+			position:absolute;
+			top:257px; 
+			//left:-83px;
+			left:10px;
+			cursor:pointer;
+
+			text-indent:-9999px;
+			background-image:url('images/lightbox-left-arrow-73x85.png');
+			background-repeat:no-repeat;
+
+			width:73px;
+			height:85px;
+
+			&:hover{ background-image:url('images/lightbox-active-left-arrow-73x85.png'); }
+		}
+
+		.next{
+			position:absolute;
+			top:257px; 
+			//right:-83px;
+			right:10px;
+			cursor:pointer;
+
+			text-indent:-9999px;
+			background-image:url('images/lightbox-right-arrow-73x85.png');
+			background-repeat:no-repeat;
+
+			width:73px;
+			height:85px;
+
+			&:hover{ background-image:url('images/lightbox-active-right-arrow-73x85.png'); }
+		}
+	}
+}
